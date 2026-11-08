@@ -194,7 +194,7 @@ footer{padding-block:72px 40px;color:var(--muted);font-size:15px;display:flex;fl
   <header class="top">
     <a class="brand" href="#top"><i aria-hidden="true"></i>TrueRule</a>
     <nav class="nav" aria-label="Sections">
-      <a href="#bench">Ruler</a><a href="#check">Check it</a><a href="#convert">Convert</a><a href="#guide">Guide</a>
+      <a href="#bench">Ruler</a><a href="#check">Check it</a><a href="#convert">Convert</a><a href="#guide">Guide</a><a href="/inch-ruler/">Inch ruler</a><a href="/cm-ruler/">CM ruler</a>
     </nav>
     <div class="top-actions">
       <button class="ghost" id="theme" type="button">Theme</button>
@@ -349,6 +349,7 @@ footer{padding-block:72px 40px;color:var(--muted);font-size:15px;display:flex;fl
   <footer>
     <span>TrueRule is free to use and needs no account.</span>
     <span>Calibration is saved only in this browser.</span>
+    <span><a href="/inch-ruler/">Inch ruler</a> · <a href="/cm-ruler/">CM ruler</a></span>
   </footer>
 </div>
 
@@ -403,7 +404,7 @@ const num=(x,d)=>String(+x.toFixed(d));
 /* ---------- state ---------- */
 let cal=null;
 try{const j=JSON.parse(store.get('truerule.cal')||'null');if(j&&j.dev>0&&j.dev<80)cal=j;}catch(e){}
-const S={unit:store.get('truerule.unit')||'cm',tool:'line',edges:{top:true,left:true,right:false,bottom:false},grid:true,slide:false,
+const S={unit:window.TR_UNIT||store.get('truerule.unit')||'cm',tool:'line',edges:{top:true,left:true,right:false,bottom:false},grid:true,slide:false,
   shapes:[],mode:'screen',mmPerNat:null,nw:0,nh:0,fl:{x:90,y:170,a:0}};
 if(!['cm','in','px','dual'].includes(S.unit))S.unit='cm';
 let draft=null,photoUrl=null;
